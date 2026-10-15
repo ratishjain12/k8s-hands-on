@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lab-app
+  template:
+    metadata:
+      labels:
+        app: lab-app
+    spec:
+      containers:
+        - name: lab-container
+          image: busybox:1.36
+          command:
+            [
+              "sh",
+              "-c",
+              "echo DB_HOST=$DB_HOST; echo DB_PORT=$DB_PORT; sleep 3600",
+            ]
+          envFrom:
+            - configMapRef:
+                name: lab-configmap

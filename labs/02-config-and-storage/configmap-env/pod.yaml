@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lab-pod
+spec:
+  containers:
+    - name: lab-container
+      image: busybox:1.36
+      command:
+        ["sh", "-c", "echo DB_HOST=$DB_HOST; echo DB_PORT=$DB_PORT; sleep 3600"]
+      env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: lab-configmap
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: lab-configmap
+              key: DB_PORT
