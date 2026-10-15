@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-deployment-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lab-app-nginx
+  template:
+    metadata:
+      labels:
+        app: lab-app-nginx
+    spec:
+      containers:
+        - name: lab-container-nginx
+          image: nginx:1.25
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+          ports:
+            - containerPort: 80
+      volumes:
+        - name: config-volume
+          configMap:
+            name: lab-configmap-file

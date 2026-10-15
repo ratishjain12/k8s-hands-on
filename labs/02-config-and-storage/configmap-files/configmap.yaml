@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lab-configmap-file
+data:
+  index.html: |
+    <html>
+      <head>
+        <title>ConfigMap Example Update</title>
+      </head>
+      <body>
+        <h1>Welcome to the ConfigMap Example!</h1>
+        <p>This is a sample HTML file served from a ConfigMap.</p>
+      </body>
+    </html>
