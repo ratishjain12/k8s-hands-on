@@ -1,0 +1,16 @@
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# secrets and local cluster state
+*.kubeconfig
+kubeconfig*
+.env
+*.pem
+*.key
+
+# terraform (later phases)
+.terraform/
+*.tfstate
+*.tfstate.*
