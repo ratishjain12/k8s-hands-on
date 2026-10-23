@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: statefulset-app
+spec:
+  selector:
+    matchLabels:
+      app: statefulset-app
+  serviceName: headless-service
+  replicas: 3
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: statefulset-app
+    spec:
+      containers:
+        - name: statefulset-container
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
+              name: http
+          volumeMounts:
+            - name: statefulset-volume
+              mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+    - metadata:
+        name: statefulset-volume
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 100Mi
