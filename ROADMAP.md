@@ -3,7 +3,7 @@
 Check off a phase only when you can do its exercises without the docs open.
 
 - [x] **01. Core objects** — Pod, ReplicaSet, Deployment, Service, Namespace, labels and selectors, `kubectl` ([phase](phases/01-core-objects/README.md), [notes](notes/01-core-objects/))
-- [ ] **02. Config and storage** — ConfigMap, Secret, volumes, PV/PVC, StatefulSet
+- [x] **02. Config and storage** — ConfigMap, Secret, volumes, PV/PVC, StatefulSet ([phase](phases/02-config-and-storage/README.md), [notes](notes/02-config-and-storage/))
 - [ ] **03. Networking** — Service types, Ingress, cluster DNS, NetworkPolicy
 - [ ] **04. Operations** — probes, requests/limits, HPA, rolling updates, RBAC, Jobs and CronJobs
 - [ ] **05. Packaging and cloud** — Helm, Kustomize, EKS with Terraform, IRSA, ingress controller
